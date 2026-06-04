@@ -1,0 +1,121 @@
+.station-card {
+    background: white;
+    width: 350px;
+    margin: 20px auto;
+    padding: 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+}
+
+.station-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+button {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+button:hover {
+
+    background: #1d4ed8;
+
+}
+h1 {
+
+    text-align: center;
+
+    margin-top: 30px;
+
+    font-size: 50px;
+
+}
+.slot-card {
+
+    background: white;
+
+    width: 300px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+}
+.booking-form {
+
+    width: 500px;
+
+    margin: 30px auto;
+
+    display: flex;
+
+    gap: 10px;
+
+    justify-content: center;
+
+}
+input {
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    border: 1px solid #ccc;
+
+    font-size: 16px;
+
+}
+body {
+
+    background: #f5f7fb;
+
+    font-family: Arial, sans-serif;
+
+}
+.booking-card {
+
+    width: 400px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+}
+.view-bookings-btn
+{
+    background: #2563eb;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
