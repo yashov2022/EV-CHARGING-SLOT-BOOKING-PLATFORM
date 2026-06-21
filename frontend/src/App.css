@@ -1,121 +1,440 @@
-.station-card {
-    background: white;
-    width: 350px;
-    margin: 20px auto;
-    padding: 20px;
+/* Main page */
 
-    border-radius: 12px;
+.stations-page{
 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width:100%;
 
-    transition: 0.3s;
+    min-height:100vh;
+
 }
 
-.station-card:hover {
-    transform: translateY(-5px);
+/* Grid for cards */
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.stations-grid{
+
+    width:85%;
+
+    margin:50px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+
+    gap:40px;
+
+    justify-items:center;
+
 }
+
+
+/* ---------------- BODY ---------------- */
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #0ea5e9
+    );
+
+    font-family: "Segoe UI", sans-serif;
+
+    color: white;
+
+}
+
+/* ---------------- HEADINGS ---------------- */
+
+h1{
+          text-align: center;
+
+    font-size: 60px;
+
+    font-weight: 700;
+
+    margin-top:40px;
+
+    color:white;
+
+}
+h2 {
+
+    color: white;
+
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+.button-container{
+
+    width:70%;
+
+    margin:20px auto;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    background:
+    rgba(255,255,255,.1);
+
+    backdrop-filter:
+    blur(20px);
+
+    border-radius:30px;
+
+}
+/* ---------------- BUTTONS ---------------- */
+
 button {
 
-    background: #2563eb;
+    background:
+            linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #38bdf8
+            );
 
     color: white;
 
     border: none;
 
-    padding: 10px 20px;
+    padding: 14px 24px;
 
-    border-radius: 8px;
+    border-radius: 15px;
 
     cursor: pointer;
 
     font-size: 16px;
 
-    transition: 0.3s;
+    font-weight: 600;
+
+    transition: .3s;
+
 }
 
 button:hover {
 
-    background: #1d4ed8;
+    transform:
+            translateY(-4px);
+
+    box-shadow:
+            0 10px 25px rgba(
+                    56,
+                    189,
+                    248,
+                    .6
+            );
 
 }
-h1 {
 
-    text-align: center;
+/* ---------------- INPUTS ---------------- */
 
-    margin-top: 30px;
+input {
 
-    font-size: 50px;
+    width: 260px;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    border: none;
+
+    outline: none;
+
+    background:
+            rgba(255,255,255,.15);
+
+    color: white;
+
+    font-size: 16px;
+
+    box-shadow:
+            0 4px 10px rgba(
+                    0,
+                    0,
+                    0,
+                    .2
+            );
 
 }
+
+input::placeholder {
+
+    color:
+            rgba(255,255,255,.7);
+
+}
+
+/* ---------------- STATIONS PAGE ---------------- */
+
+
+/* ---------------- STATION CARD ---------------- */
+.station-card{
+
+    width:350px;
+
+    min-height:200px;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.3);
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.station-card:hover{
+
+    transform:
+    translateY(-10px);
+
+}
+/* ---------------- SLOT CARD ---------------- */
+
 .slot-card {
-
-    background: white;
 
     width: 300px;
 
     margin: 20px auto;
 
-    padding: 20px;
+    padding: 25px;
 
-    border-radius: 10px;
+    border-radius: 25px;
 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background:
+            rgba(255,255,255,.12);
+
+    backdrop-filter:
+            blur(20px);
+
+    border:
+            1px solid rgba(
+                    255,
+                    255,
+                    255,
+                    .2
+            );
+
+    box-shadow:
+            0 15px 35px rgba(
+                    0,
+                    0,
+                    0,
+                    .3
+            );
+
+    transition: .3s;
 
 }
+
+.slot-card:hover {
+
+    transform:
+            scale(1.03);
+
+}
+
+/* ---------------- BOOKING CARD ---------------- */
+
+.booking-card {
+
+    width: 420px;
+
+    margin: 25px auto;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background:
+            rgba(255,255,255,.12);
+
+    backdrop-filter:
+            blur(20px);
+
+    border:
+            1px solid rgba(
+                    255,
+                    255,
+                    255,
+                    .2
+            );
+
+    box-shadow:
+            0 15px 35px rgba(
+                    0,
+                    0,
+                    0,
+                    .3
+            );
+
+}
+
+/* ---------------- FORMS ---------------- */
+
 .booking-form {
-
-    width: 500px;
-
-    margin: 30px auto;
 
     display: flex;
 
-    gap: 10px;
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+
+}
+
+/* ---------------- DASHBOARD ---------------- */
+
+.dashboard-grid {
+
+    display: flex;
 
     justify-content: center;
 
-}
-input {
+    gap: 30px;
 
-    padding: 10px;
+    flex-wrap: wrap;
 
-    border-radius: 8px;
-
-    border: 1px solid #ccc;
-
-    font-size: 16px;
+    margin-top: 50px;
 
 }
-body {
 
-    background: #f5f7fb;
+.dashboard-card {
 
-    font-family: Arial, sans-serif;
+    width: 250px;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    background:
+            rgba(255,255,255,.12);
+
+    backdrop-filter:
+            blur(20px);
+
+    border:
+            1px solid rgba(
+                    255,
+                    255,
+                    255,
+                    .2
+            );
+
+    box-shadow:
+            0 15px 35px rgba(
+                    0,
+                    0,
+                    0,
+                    .3
+            );
+
+    transition: .3s;
 
 }
-.booking-card {
 
-    width: 400px;
+.dashboard-card:hover {
 
-    margin: 20px auto;
-
-    padding: 20px;
-
-    background: white;
-
-    border-radius: 12px;
-
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform:
+            translateY(-10px);
 
 }
-.view-bookings-btn
-{
-    background: #2563eb;
-    padding: 10px 20px;
-    border-radius: 8px;
-    color: white;
-    border: none;
-    cursor: pointer;
+
+.dashboard-card h2 {
+
+    font-size: 55px;
+
+    color: #38bdf8;
+
+}
+
+.dashboard-card p {
+
+    font-size: 20px;
+
+}
+
+/* ---------------- LOGIN & REGISTER ---------------- */
+
+.login-card,
+.register-card {
+
+    width: 420px;
+
+    margin: 80px auto;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    background:
+            rgba(255,255,255,.12);
+
+    backdrop-filter:
+            blur(20px);
+
+    border:
+            1px solid rgba(
+                    255,
+                    255,
+                    255,
+                    .2
+            );
+
+    box-shadow:
+            0 15px 40px rgba(
+                    0,
+                    0,
+                    0,
+                    .3
+            );
+
+    text-align: center;
+
+}
+
+/* ---------------- SCROLLBAR ---------------- */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #38bdf8;
+
+    border-radius: 20px;
+
 }

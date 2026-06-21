@@ -2,18 +2,25 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import StationCard from "../component/StationCard";
 import { useNavigate } from "react-router-dom"; 
-function StationsPage() {
+import api from "../services/api";
+import Navbar from "../components/Navbar";
 
-    const [stations, setStations] = useState([]);
+function StationsPage() {
+    
     const navigate = useNavigate();
 
+    const [stations, setStations] = useState([]);
+  
     useEffect(() => {
 
-        axios
-            .get(`http://localhost:8081/stations`)
-            .then((response) => {
-                setStations(response.data);
-            });
+        
+        api.get("/stations")
+
+.then((response)=>{
+
+    setStations(response.data);
+
+});
 
     }, []);
 
@@ -21,18 +28,14 @@ function StationsPage() {
      
     <div className="stations-page">
 
-        <h1>EV Charging Stations</h1>
+    <Navbar/>
 
-        <button className="view-bookings-btn"
-            onClick={() =>
-                navigate("/bookings")
-            }
-        >
-            View Bookings
-        </button>
+    <h1>EV Charging Stations</h1>
+
+    <div className="stations-grid">
 
         {
-            stations.map((station) => (
+            stations.map((station)=>(
 
                 <StationCard
                     key={station.id}
@@ -44,8 +47,7 @@ function StationsPage() {
 
     </div>
 
-       
-        
+</div>
     );
 }
 

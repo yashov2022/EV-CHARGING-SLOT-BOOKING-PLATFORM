@@ -1,20 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import api from "../services/api";
 function BookingsPage() {
 
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-
-        axios
-            .get("http://localhost:8081/book/history")
-            .then((response) => {
-
-                setBookings(response.data);
-
-            });
-
+      api.get("/book/history")
+        .then((response) => {
+          setBookings(response.data);
+        });
     }, []);
 
     return (

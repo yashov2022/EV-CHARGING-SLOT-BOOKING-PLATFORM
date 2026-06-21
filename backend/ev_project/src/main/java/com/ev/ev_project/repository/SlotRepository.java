@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface SlotRepository extends JpaRepository<Slot, Integer>
 {
+    long countByIsAvailable(boolean isAvailable);
     List<Slot> findByStationId(int stationId);
 }
+

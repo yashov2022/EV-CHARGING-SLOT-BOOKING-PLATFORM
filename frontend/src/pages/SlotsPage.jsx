@@ -1,48 +1,52 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import api from "../services/api";
 function SlotsPage() {
     const { stationId } = useParams();
     const [slots, setSlots] = useState([]);
     const [selectedSlot, setSelectedSlot] = useState(null);
     const [userName, setUserName] = useState("");
     const [vehicleNumber, setVehicleNumber] = useState("");
+    
      useEffect(() => {
 
         fetchSlots();
 
     }, [stationId]);
     const fetchSlots = () => {
-    axios
-      .get(`http://localhost:8081/slots/${stationId}`)
-      .then((response) => {
-          setSlots(response.data);
-      });
-};
+        api.get(`/slots/${stationId}`)
+            .then((response) => {
+                setSlots(response.data);
+            });
+    };
     const bookSlot = () => {
-
-    axios.post(
-        "http://localhost:8081/book",
-        {
-            slotId: selectedSlot,
-            userName: userName,
-            vehicleNumber: vehicleNumber
+        if (!selectedSlot || !userName || !vehicleNumber) {
+            alert("Please select a slot and fill in all booking fields.");
+            return;
         }
-    )
-    .then((response) => {
 
-         alert("Booking Successful");
+        const bookingData = {
+            stationId,
+            slotId: selectedSlot,
+            userName,
+            vehicleNumber,
+        };
 
-    // Fetch slots again
-    fetchSlots();
-    })
-    .catch((error) => {
+        api.post(
+            "/book",
+            bookingData
+        )
+            .then((response) => {
+                alert("Booking Successful");
 
-        alert("Booking Failed");
+                // Fetch slots again
+                fetchSlots();
+            })
+            .catch((error) => {
+                alert("Booking Failed");
+            });
+    };
 
-    });
-
-};
     return (
 
         <div>

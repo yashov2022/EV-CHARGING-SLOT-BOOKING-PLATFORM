@@ -12,7 +12,7 @@ public class Station {
     private String name;
     @Column(name="latitude")
     private double latitude;
-    @Column (name="longitudestudentsstations")
+    @Column (name="longitude")
     private double longitude;
     @Column (name="address")
     private String address;

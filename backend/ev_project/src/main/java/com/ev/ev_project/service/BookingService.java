@@ -55,8 +55,10 @@ public class BookingService {
 
         return bookingRepo.save(booking);
     }
-    public List<Booking> getAllBookings() {
-        return bookingRepo.findAll();
+    public List<Booking> getAllBookings(String username) {
+      return bookingRepo.findByUserName(
+                username
+        );
     }
 }
 
