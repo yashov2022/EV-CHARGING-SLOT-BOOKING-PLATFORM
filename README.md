@@ -1,275 +1,258 @@
-# Smart EV Charging Slot Booking Platform
+# ⚡ EV Charging Slot Booking Platform
 
-## Overview
-
-Smart EV Charging Slot Booking Platform is a full-stack web application that allows users to discover EV charging stations, view available charging slots, and reserve charging sessions through an intuitive web interface.
-
-The project aims to simplify EV charging station management and eliminate scheduling conflicts by providing real-time slot availability and automated booking workflows.
+A full-stack **EV Charging Slot Booking Platform** that enables users to discover charging stations, reserve charging slots, view station locations on an interactive map, and manage bookings. The platform also includes an **Admin Dashboard** for monitoring charging station statistics and slot utilization.
 
 ---
 
-## Features
+## 🚀 Live Demo
 
-### Station Management
+ https://evfrontend.netlify.app
 
-* View all available EV charging stations
-* Display station details including:
+---
 
-  * Station Name
-  * Address
+## 📖 Overview
+
+This project provides a complete booking system for EV charging stations with secure authentication and role-based access control.
+
+### User Features
+
+* Secure user registration and login using JWT authentication
+* Browse available EV charging stations
+* View charging station locations on an interactive map
+* Check real-time slot availability
+* Book charging slots
+* View booking history
+* Responsive and modern UI
+
+### Admin Features
+
+* Secure admin login
+* Dashboard displaying:
+
+  * Total Charging Stations
   * Total Charging Slots
-  * Location Coordinates
-
-### Slot Management
-
-* View available charging slots for a selected station
-* Display slot timings
-* Show real-time slot availability status
-
-### Booking System
-
-* Reserve charging slots
-* Capture user details and vehicle information
-* Prevent duplicate bookings
-* Automatically update slot availability after successful reservations
-
-### Booking History
-
-* View all previously created bookings
-* Track reservation details
+  * Available Slots
+  * Booked Slots
+* Role-based access control
 
 ---
 
-## Tech Stack
+# 🛠 Tech Stack
 
 ### Frontend
 
 * React.js
-* React Router DOM
+* React Router
 * Axios
-* HTML5
+* React Leaflet
+* Leaflet Maps
 * CSS3
 
 ### Backend
 
+* Java 17
 * Spring Boot
+* Spring Security
+* JWT Authentication
 * Spring Data JPA
-* REST APIs
+* Hibernate
 
 ### Database
 
 * MySQL
 
-### Tools
+### Deployment
 
-* IntelliJ IDEA
-* VS Code
-* Postman
-* Git & GitHub
-
----
-
-## System Architecture
-
-```text
-React Frontend
-      |
-      v
-Spring Boot REST APIs
-      |
-      v
-Service Layer
-      |
-      v
-JPA Repository Layer
-      |
-      v
-MySQL Database
-```
+* Frontend: Netlify
+* Backend: Railway
+* Database: Railway MySQL
 
 ---
 
-## Database Design
+# ✨ Features
 
-### Stations Table
+## Authentication
 
-| Column      | Description              |
-| ----------- | ------------------------ |
-| id          | Station ID               |
-| name        | Station Name             |
-| address     | Station Address          |
-| latitude    | Latitude Coordinate      |
-| longitude   | Longitude Coordinate     |
-| total_slots | Number of Charging Slots |
-
-### Slots Table
-
-| Column       | Description        |
-| ------------ | ------------------ |
-| id           | Slot ID            |
-| station_id   | Associated Station |
-| start_time   | Slot Start Time    |
-| end_time     | Slot End Time      |
-| is_available | Slot Availability  |
-
-### Bookings Table
-
-| Column         | Description                 |
-| -------------- | --------------------------- |
-| id             | Booking ID                  |
-| slot_id        | Booked Slot                 |
-| user_name      | User Name                   |
-| vehicle_number | Vehicle Registration Number |
-| booking_time   | Reservation Timestamp       |
+* User Registration
+* User Login
+* JWT Token Authentication
+* Password Encryption using BCrypt
+* Role-based Authorization
 
 ---
 
-## REST API Endpoints
+## Charging Stations
 
-### Stations
-
-#### Get All Stations
-
-```http
-GET /stations
-```
+* Display all charging stations
+* View station details
+* Interactive location map
+* Dynamic station loading from database
 
 ---
 
-### Slots
+## Slot Booking
 
-#### Get Slots By Station
-
-```http
-GET /slots/{stationId}
-```
-
-Example:
-
-```http
-GET /slots/1
-```
+* View available charging slots
+* Book charging slots
+* Prevent booking of occupied slots
+* Dynamic slot availability updates
 
 ---
 
-### Bookings
+## Booking Management
 
-#### Create Booking
-
-```http
-POST /book
-```
-
-Request Body:
-
-```json
-{
-  "slotId": 1,
-  "userName": "Yash",
-  "vehicleNumber": "KA01AB1234"
-}
-```
+* Booking history
+* User-specific bookings
+* Booking status tracking
 
 ---
 
-#### Get Booking History
+## Admin Dashboard
 
-```http
-GET /book/history
-```
+The admin dashboard provides a quick overview of the system including:
 
----
+* Number of charging stations
+* Total charging slots
+* Available slots
+* Booked slots
 
-## Frontend Workflow
-
-```text
-Stations Page
-      |
-      v
-View Slots
-      |
-      v
-Slots Page
-      |
-      v
-Book Slot
-      |
-      v
-Booking Form
-      |
-      v
-Confirm Booking
-      |
-      v
-Booking Saved
-```
+Accessible only by users with the **ADMIN** role.
 
 ---
 
-## Project Structure
+# 📂 Project Structure
 
-### Backend
+```
+Frontend
+│
+├── React
+├── Components
+├── Pages
+├── Services
+└── CSS
 
-```text
-src/main/java/com/ev/ev_project
-
-├── controller
-├── service
-├── repository
-├── entity
+Backend
+│
+├── Controller
+├── Service
+├── Repository
+├── Entity
 ├── DTO
-└── EvProjectApplication.java
-```
-
-### Frontend
-
-```text
-src
-
-├── component
-│   └── StationCard.jsx
-
-├── pages
-│   ├── StationsPage.jsx
-│   ├── SlotsPage.jsx
-│   └── BookingsPage.jsx
-
-├── App.jsx
-└── App.css
+├── Config
+├── Filter
+└── Security
 ```
 
 ---
 
-## Future Enhancements
+# 🔐 Authentication Flow
 
-* Google Maps Integration
+1. User logs in.
+2. Spring Boot validates credentials.
+3. JWT token is generated.
+4. Token is stored in Local Storage.
+5. Axios automatically attaches the token to every authenticated request.
+6. Spring Security validates the token before granting access.
+
+---
+
+# 🌍 Interactive Map
+
+The application integrates **React Leaflet** with **OpenStreetMap** to display charging station locations dynamically.
+
+Features include:
+
+* Dynamic station markers
+* Popup with station details
+* Direct navigation to slot booking
+
+---
+
+# 📊 Database
+
+The application uses a relational MySQL database with entities including:
+
+* Users
+* Stations
+* Slots
+* Bookings
+
+Entity relationships are managed using Spring Data JPA.
+
+---
+
+# 🔒 Security
+
 * JWT Authentication
-* User Login & Registration
-* Booking Cancellation
-* Admin Dashboard
-* Analytics Dashboard
-* Nearby Station Discovery
-* Real-Time Slot Updates using WebSockets
-* Dynamic Pricing based on Demand
+* BCrypt Password Encryption
+* Spring Security
+* Protected Routes
+* Role-Based Authorization
+* CORS Configuration
 
 ---
 
-## Learning Outcomes
+# ⚙️ Installation
 
-* Full-Stack Application Development
+## Clone Repository
+
+```bash
+git clone <repository-url>
+```
+
+---
+
+## Backend
+
+```bash
+cd backend
+mvn clean install
+mvn spring-boot:run
+```
+
+---
+
+## Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+# Future Improvements
+
+* Email notifications after booking
+* QR Code generation for bookings
+* Payment Gateway Integration
+* Real-time slot updates using WebSockets
+* Charging station search and filters
+* User profile management
+* Booking cancellation with refund workflow
+
+---
+
+# Learning Outcomes
+
+This project strengthened practical experience in:
+
+* Full Stack Development
 * REST API Design
-* Spring Boot Architecture
-* React Component-Based Development
-* State Management using React Hooks
-* Database Design and Entity Relationships
-* Frontend-Backend Integration
-* API Testing using Postman
-* JPA/Hibernate ORM Mapping
+* Spring Boot
+* Spring Security
+* JWT Authentication
+* Database Design
+* React Development
+* API Integration
+* Deployment using Railway and Netlify
 
 ---
 
-## Author
+# Author
 
 **Yashovardhan Appakaya**
 
-
+* GitHub: https://github.com/yashov2022
+* LinkedIn: https://www.linkedin.com/in/yashovardhan-appakaya-bb3973274/
